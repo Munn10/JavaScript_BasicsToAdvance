@@ -43,3 +43,6 @@ const spliceArr = [1, 2, 3, 4, 5];
 // console.log(spliceArr);
 console.log(spliceArr.slice(0, 3)); // ==> prints the values from 0 index to 2nd index
 console.log(spliceArr);
+
+// ++++++++++++++++++ Array Methods ++++++++++++++++++++++++
+// push(), pop(),unshift(), shift(),splice(), slice()
