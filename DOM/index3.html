@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+      <li>Java Script</li>
+    </ul>
+  </body>
+  <script>
+    const createElement = (language) => {
+      const li = document.createElement("li");
+      li.innerText = `${language}`;
+      document.querySelector(".language").appendChild(li);
+    };
+
+    createElement("Python");
+    createElement("Node JS  ");
+
+    const optimiseWay = (language) => {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(language));
+      document.querySelector(".language").appendChild(li);
+    };
+
+    optimiseWay("Ruby");
+
+    // How to Edit language?
+    //  Suppose we need to change python to Oracle
+
+    const secondLi = document.querySelector("li:nth-child(2)");
+    // console.log(secondLi);
+    // We can directly change the value by:
+    // secondLi.innerHTML = "Oracle";
+
+    // For better optimisation:
+    const createdli = document.createElement("li");
+    createdli.textContent = "Oracle";
+    // createdli.appendChild(document.createTextNode("Oracle"));
+    secondLi.replaceWith(createdli);
+
+    // Now edit JS to typeScript?
+
+    const selectedLi = document.querySelector("li:nth-child(1)");
+    // console.log(selectedLi);
+    const newLi = document.createElement("li");
+    newLi.appendChild(document.createTextNode("Type-Script"));
+    // console.log(newLi);
+    selectedLi.replaceWith(newLi);
+
+    // const firstLi = document.querySelector("li:first-child");
+    // // console.log(firstLi);
+    // firstLi.outerHTML = "<li>Type-Script</li>";
+
+    // Remove:
+
+    const lastLanguage = document.querySelector("li:last-child");
+    // console.log(lastLanguage);
+    // document.querySelector(".language").removeChild(lastLanguage);
+    lastLanguage.remove();
+  </script>
+</html>
