@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing Images</h2>
+    <ul id="images">
+      <li>
+        <img
+          src="https://images.pexels.com/photos/3870496/pexels-photo-3870496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          id="dubai"
+          alt=""
+          width="200"
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.pexels.com/photos/357209/pexels-photo-357209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          id="lion"
+          width="200"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          id="mountain"
+          width="200"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.pexels.com/photos/2649916/pexels-photo-2649916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          id="owl"
+          width="200"
+          alt=""
+        />
+      </li>
+      <li>
+        <a style="color: aliceblue;" href="https://google.com" id="google"
+          >Google</a
+        >
+      </li>
+    </ul>
+  </body>
+  <script>
+    // document.getElementById("owl").onclick = function () {
+    //   alert("owl clicked");
+    // };
+
+    // document.getElementById("owl").addEventListener("click", function () {
+    //   alert("owl clicked again");
+    // });
+
+    // type, timeStamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    // altkey, shiftkey, ctrlkey, keyCode
+
+    // document.getElementById("lion").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log(e);
+    //   },
+    //   false
+    // );
+
+    // Event propogation: bubbling and capturing
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("clicked inside the ul");
+    //   },
+    //   true
+    // );
+
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("owl clicked");
+    //     e.stopPropagation();
+    //   },
+    //   true
+    // );
+
+    // document.getElementById("lion").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("Lion clicked!");
+    //   },
+    //   false
+    // );
+
+    // On clicked we need to delete the image.
+
+    document.getElementById("images").addEventListener("click", function (e) {
+      //   console.log(e.target.parentNode);
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        let removeIt = e.target.parentNode;
+        removeIt.remove();
+      }
+
+      //   removeIt.parentNode.removeChild(removeIt);
+    });
+
+    //false: in this case event is going from child to parent that is called event bubbling.
+  </script>
+</html>
